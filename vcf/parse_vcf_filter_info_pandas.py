@@ -8,12 +8,12 @@ pd.set_option('display.width', 200)
   
 VCF_COLUMNS = ['CHROM', 'POS',	'ID',	'REF',	'ALT', 	'QUAL', 	'FILTER', 	'INFO', 'FORMAT', 'custom_somatico']
 
-INFO_FIELDS_PATTERNS = { 'FractionInformativeReads': '.*;FractionInformativeReads=(\d+\.?\d+)',
-                                                  'MQ': '.*;MQ=(\d+\.?\d+)',
-                                                  'MQRankSum': '.*;(?:MQRankSum=(\d+\.?\d+))?', 
-                                                  'ReadPosRankSum': '(?:ReadPosRankSum=(\d+\.?\d+))?', 
-                                                  'hotspot': '(hotspot)', 
-                                                  'GermlineStatus': '.*;(?:GermlineStatus=(Germline_DB|Germline_Proxi|Somatic|Somatic_Putative_DB))?'}
+INFO_FIELDS_PATTERNS = { 'FractionInformativeReads': r'FractionInformativeReads=(\d+\.?\d+)',
+                                                  'MQ': r'MQ=(\d+\.?\d+)',
+                                                  'MQRankSum': r'MQRankSum=(\d+\.?\d+)', 
+                                                  'ReadPosRankSum': r'ReadPosRankSum=(\d+\.?\d+)', 
+                                                  'hotspot': r'\b(hotspot)\b', 
+                                                  'GermlineStatus': r'GermlineStatus=(Germline_DB|Germline_Proxi|Somatic|Somatic_Putative_DB)'}
 
 
 def parse_filters(df):
